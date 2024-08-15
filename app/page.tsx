@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 type Coordinates = { x: number; y: number };
 
 export default function Home() {
+  const [mobileClicks, setMobileClicks] = useState(0);
   const [screenSize, setScreenSize] = useState<Coordinates>({
     x: 0,
     y: 0,
@@ -91,6 +92,10 @@ export default function Home() {
         <button
           className="bg-red-500/60 hover:bg-red-400/60 transition-all text-white font-bold py-2 px-4 rounded"
           onClick={() => {
+            if (mobileClicks < 20) {
+              setMobileClicks((prev) => prev + 1);
+              return;
+            }
             let confirmed = true;
             while (confirmed) {
               confirmed = confirm("Are you sure you want to tip 0%?");
