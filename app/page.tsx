@@ -37,7 +37,7 @@ export default function Home() {
 
   return (
     <main className="flex flex-col min-h-screen gap-8 items-center justify-center">
-      <div className="flex gap-8">
+      <div className="flex flex-col lg:flex-row gap-8">
         {tipAmounts.map((tipAmount) => (
           <button
             id={`tip-${tipAmount}`}
