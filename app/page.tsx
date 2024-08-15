@@ -94,6 +94,10 @@ export default function Home() {
           onClick={() => {
             if (mobileClicks < 20) {
               setMobileClicks((prev) => prev + 1);
+              setCoords({
+                x: Math.random() * screenSize.x,
+                y: Math.random() * screenSize.y,
+              });
               return;
             }
             let confirmed = true;
